@@ -1,0 +1,123 @@
+@import url('https://rsms.me/inter/inter.css');
+
+:root {
+  --color-light: white;
+  --color-dark: #212121;
+  --color-signal: #fab700;
+  
+  --color-background: var(--color-light);
+  --color-text: var(--color-dark);
+  --color-accent: var(--color-signal);
+  
+  --size-bezel: .5rem;
+  --size-radius: 4px;
+  
+  line-height: 1.4;
+  
+  font-family: 'Inter', sans-serif;
+  font-size: calc(.6rem + .4vw);
+  color: var(--color-text);
+  background: var(--color-background);
+  font-weight: 300;
+  padding: 0 calc(var(--size-bezel) * 3);
+}
+
+.App {
+  text-align: center;
+  
+}
+
+#date {
+  text-align: right;
+  font-size: 10px;
+  margin-right: 15px;
+}
+
+#message {
+  text-align: left;
+  flex-grow: 1;
+  margin-top: 10px;
+  display: flex;
+}
+
+#messageanddate {
+  border: 1px solid black;
+  margin-top: -1px;
+  
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#footer {
+  height: 70px;
+  margin-top: auto;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+#chat {
+  margin-bottom: 25px
+}
+
+#form_container {
+  align-self: center; 
+}
+
+#messagesender {
+  width: 100px;
+  text-align: center;
+}
+
+#message_input {
+  width: 80%;
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 22px;
+}
+
+.input {
+  position: relative;
+}
+.input_label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: calc(var(--size-bezel) * 0.75) calc(var(--size-bezel) * .5);
+  margin: calc(var(--size-bezel) * 0.75 + 3px) calc(var(--size-bezel) * .5);
+  background: pink;
+  white-space: nowrap;
+  transform: translate(0, 0);
+  transform-origin: 0 0;
+  background: var(--color-background);
+  transition: transform 120ms ease-in;
+  font-weight: bold;
+  line-height: 1.2;
+}
+.input_field {
+  margin-top: 5px;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border: 3px solid currentColor;
+  padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
+  color: currentColor;
+  background: transparent;
+  border-radius: var(--size-radius);
+}
+
+.button-group {
+  margin-top: calc(var(--size-bezel) * 2.5);
+}
+
+button {
+  color: currentColor;
+  padding: var(--size-bezel) calc(var(--size-bezel) * 2);
+  border: none;
+  border-radius: var(--size-radius);
+  font-weight: 900;
+
+}
