@@ -12,12 +12,12 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false)
 
   const logIn = () => {
+    console.log(channel !== "")
     if(user !== "" && channel !== ""){
       setLoggedIn(() => true)
       socket.emit("joinedChannel", channel, user)
     }
     
-
   }
 
   return (
