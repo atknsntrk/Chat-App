@@ -10,10 +10,8 @@ const connectDB = require('./config/db.config')
 
 app.use(cors())
  
-
-//needed otherwise there'll be cors errors sometimes
 connectDB();
-//json
+
 app.use(bodyParser.urlencoded({
     extended: false
 }));
@@ -46,7 +44,6 @@ io.on('connection', (socket => {
     })
 
 }))
-
 
 
 http.listen(PORT, () => {

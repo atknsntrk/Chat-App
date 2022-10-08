@@ -1,34 +1,10 @@
 import React, { useEffect, useState } from "react";
 import {v4 as uuidv4} from 'uuid';
 import ChatDataService from '../services/chat.service'
+import Message from "./Message";
 
-function Chat({ socket, user, channel, loggedIn, setLoggedIn }) {
-    const [currentMessage, setCurrentMessage] = useState("")
+function Chat({ socket, user, channel, setLoggedIn, setUser, setChannel }) {
     const [messages, setMessages] = useState([])
-    
-
-    const sendMessage = async () => {
-        
-        if(currentMessage !== ""){
-            const message = {
-                user: user,
-                text: currentMessage,
-                channel: channel,
-                time: new Date()
-            } 
-            
-            
-            await socket.emit("messageSend", message)
-            
-            ChatDataService.create(message)
-                .then(res => console.log(res.data))
-                .catch(err => console.log(err.message))
-            
-            
-            setMessages((old) => [...old, message])
-            setCurrentMessage("")
-        }
-    }
 
     useEffect(() => {
         console.log('Test')
@@ -51,7 +27,7 @@ function Chat({ socket, user, channel, loggedIn, setLoggedIn }) {
         var element = document.querySelector('.ref');
         window.scroll({
             top: element.scrollHeight,
-            left: 0,
+            left: 0
         });    
       }, [messages])
 
@@ -60,7 +36,6 @@ function Chat({ socket, user, channel, loggedIn, setLoggedIn }) {
         <div id="chat">
             {messages.map((message) => {
 
-                
                 let date = isNaN(message.time) ? new Date(message.createdAt) : new Date(message.time);
                 
                 return(
@@ -83,11 +58,7 @@ function Chat({ socket, user, channel, loggedIn, setLoggedIn }) {
             })}
         </div>
         <div id="footer">
-            <button onClick={() => {setLoggedIn(false)}}>Home</button>
-            <input id="message_input" type='text' value={currentMessage} placeholder="Type a message..." onChange={(event) => {
-                setCurrentMessage(event.target.value)
-            }}></input>
-            <button onClick={sendMessage}>Send</button>
+            <Message setMessages={setMessages} user={user} channel={channel} setLoggedIn={setLoggedIn} socket={socket} setUser={setUser} setChannel={setChannel}/>
         </div>  
       </div>
     );

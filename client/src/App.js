@@ -1,4 +1,3 @@
-
 import './App.css';
 import {useState} from 'react'
 import io from 'socket.io-client'
@@ -22,7 +21,7 @@ function App() {
 
   return (
     <div className="App">
-      {loggedIn ? <Chat socket={socket} user={user} channel={channel} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/> :
+      {loggedIn ? <Chat socket={socket} user={user} channel={channel} loggedIn={loggedIn} setLoggedIn={setLoggedIn} setChannel={setChannel} setUser={setUser}/> :
       <div>
       <div id='form_container'>
         <div className='inputs'>

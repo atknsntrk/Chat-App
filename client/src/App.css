@@ -24,7 +24,6 @@
 
 .App {
   text-align: center;
-  
 }
 
 #date {
@@ -53,13 +52,14 @@
 }
 
 #footer {
-  height: 70px;
+  height: 50px;
   margin-top: auto;
   flex-shrink: 0;
   width: 100%;
 }
 
 #chat {
+  margin-top: 25px;
   margin-bottom: 25px
 }
 
@@ -82,6 +82,7 @@
 .input {
   position: relative;
 }
+
 .input_label {
   position: absolute;
   left: 0;
@@ -97,6 +98,7 @@
   font-weight: bold;
   line-height: 1.2;
 }
+
 .input_field {
   margin-top: 5px;
   box-sizing: border-box;
@@ -119,5 +121,4 @@ button {
   border: none;
   border-radius: var(--size-radius);
   font-weight: 900;
-
 }
