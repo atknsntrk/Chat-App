@@ -1,8 +1,9 @@
-
 import './App.css';
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import io from 'socket.io-client'
 import Chat from './components/Chat.js'
+import Rooms from './components/Rooms.js'
+import ChatDataService from './services/chat.service';
 
 const socket = io.connect('http://localhost:3001')
 
@@ -17,11 +18,14 @@ function App() {
       setLoggedIn(() => true)
       socket.emit("joinedChannel", channel, user)
     }
-    
   }
+
+
+
 
   return (
     <div className="App">
+      <Rooms />
       {loggedIn ? <Chat socket={socket} user={user} channel={channel} loggedIn={loggedIn} setLoggedIn={setLoggedIn}/> :
       <div>
       <div id='form_container'>
@@ -50,7 +54,6 @@ function App() {
         </div>
       </div> 
       </div>}
-      
     </div>
   );
 }
